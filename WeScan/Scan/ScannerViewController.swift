@@ -98,8 +98,10 @@ final class ScannerViewController: UIViewController {
 
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.addSubview(visualEffectView)
-        navigationController?.navigationBar.sendSubviewToBack(visualEffectView)
+        
+        visualEffectView.layer.zPosition = -1
+        visualEffectView.isUserInteractionEnabled = false
+        navigationController?.navigationBar.insertSubview(visualEffectView, at:0)
         
         navigationController?.navigationBar.barStyle = .blackTranslucent
     }
